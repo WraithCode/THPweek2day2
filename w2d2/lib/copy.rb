@@ -5,15 +5,14 @@ end
 
 
 def perform
-    puts "Début de la partie :"
     place = 0
-    i=0 #stat
+    i = 0
     while place != 10
         number = roll
         place = round(number, place)
-        i+=1
+        i++
     end
-    puts "La partie est terminée. Vous avez mis #{i} tours"
+    puts "La partie est terminée. Vous avez mis #{i} tours."
     return i
 end
 
@@ -35,16 +34,20 @@ def round(number, place)
     return place
 end
 
+=begin
 def average_finish_time
     puts "Entrez le nombre de parties souhaitées"
     print ">"
     nb_parties = gets.to_i
-    i = perform
-    nb_parties.times do 
+    i=0
+    nb_parties.times do |i|
         i += perform
-        puts "Nombres de tours au total : #{i}"
     end
-    res = i / nb_parties
+    res = float(i) / float(nb_parties)
     puts "Les parties durent en moyenne #{res} tours"
 end 
+
+
 average_finish_time
+=end 
+perform
