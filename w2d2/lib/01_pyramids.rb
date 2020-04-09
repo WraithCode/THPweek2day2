@@ -29,15 +29,43 @@ end
 def full_pyramid(height)
     # dessine le haut de la pyramide
     base_length = height * 2 - 1
-    i = 1 # Iteration for hashtag sign
+    i = 1 
     
-    puts "Here's your pyramid master!"
+    puts "Voici votre pyramide !"
   
     height.times do
       puts " " * (Integer(base_length / 2) - Integer(i / 2)) + "#" * i
       i += 2
     end
 end
+
+def wtf_pyramid(height)
+    n = 1 #nb de # dans la ligne
+    h = height
+
+    while (h % 2) == 0
+        puts "Vous devez choisir un nombre impair"
+        h = pyramid_height
+    end
+
+    puts "Voici votre pyramide !"
+    h.times do |i|
+        i += 1
+        m = (Float(h) /2.0).ceil #ligne du milieu
+
+        if i<m 
+            puts " " * ((h-n)/2)+ "#" * n
+            n+=2
+        elsif i>m 
+            puts " " * ((h -n )/2)+ "#" * n
+            n -=2
+        else
+            puts "#" * h 
+            n -=2
+        end
+    end
+end      
+
 
 def type_pyramid
     puts "Quelle pyramide désirez-vous ?"
@@ -49,8 +77,8 @@ def type_pyramid
         full_pyramid(height)
     end
     if choice == "2"
-        pyramid_height
-        puts "je ne l'ai pas fait hahaha"
+        height = pyramid_height
+        wtf_pyramid(height)
     else 
         puts "veuillez entrer un choix entre 1 et 2"
     end
